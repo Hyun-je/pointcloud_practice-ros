@@ -1,7 +1,12 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(pointcloud_practice)
 
-find_package(catkin REQUIRED)
+find_package(
+  catkin REQUIRED
+  roscpp
+  sensor_msgs
+  pcl_ros
+)
 
 catkin_package(
 #  INCLUDE_DIRS include
@@ -19,7 +24,7 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
 # include
-# ${catkin_INCLUDE_DIRS}
+  ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ executable
