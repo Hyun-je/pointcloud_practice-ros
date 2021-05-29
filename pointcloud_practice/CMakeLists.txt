@@ -1,0 +1,58 @@
+cmake_minimum_required(VERSION 3.0.2)
+project(pointcloud_practice)
+
+find_package(catkin REQUIRED)
+
+catkin_package(
+#  INCLUDE_DIRS include
+#  LIBRARIES velodyne_record
+#  CATKIN_DEPENDS other_catkin_pkg
+#  DEPENDS system_lib
+)
+
+
+###########
+## Build ##
+###########
+
+## Specify additional locations of header files
+## Your package locations should be listed before other locations
+include_directories(
+# include
+# ${catkin_INCLUDE_DIRS}
+)
+
+## Declare a C++ executable
+## With catkin_make all packages are built within a single CMake context
+## The recommended prefix ensures that target names across packages don't collide
+add_executable(voxelization src/voxelization.cpp)
+add_executable(statisticalFilter src/statisticalFilter.cpp)
+add_executable(radiusFilter src/radiusFilter.cpp)
+
+## Add cmake target dependencies of the executable
+## same as for the library above
+add_dependencies(voxelization ${catkin_EXPORTED_TARGETS})
+add_dependencies(statisticalFilter ${catkin_EXPORTED_TARGETS})
+add_dependencies(radiusFilter ${catkin_EXPORTED_TARGETS})
+
+## Specify libraries to link a library or executable target against
+target_link_libraries(voxelization ${catkin_LIBRARIES})
+target_link_libraries(statisticalFilter ${catkin_LIBRARIES})
+target_link_libraries(radiusFilter ${catkin_LIBRARIES})
+
+
+#############
+## Install ##
+#############
+
+install(FILES
+    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
+
+install(DIRECTORY
+    urdf
+    rviz
+    launch
+    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
+
