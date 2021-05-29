@@ -1,0 +1,12 @@
+<launch>
+
+  <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch">
+    <arg name="pcap" value="/root/rosbag/Velodyne-VLP_10Hz-County Fair.pcap" />  
+  </include>
+
+  <node name="voxelization" pkg="pointcloud_practice" type="voxelization">
+  </node>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find pointcloud_practice)/rviz/test.rviz"/>
+
+</launch>
