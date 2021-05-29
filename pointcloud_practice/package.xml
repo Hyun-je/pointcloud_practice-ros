@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="2">
+
+  <name>pointcloud_practice</name>
+  <version>0.1.0</version>
+  <description>The pointcloud_practice package</description>
+  <license>MIT</license>
+ 
+  <url type="website">https://github.com/Hyun-je/pointcloud_practice-ros</url>
+  <author email="bigae2@gmail.com">Hyun-je</author>
+  <maintainer email="bigae2@gmail.com">Hyun-je</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>pcl-ros</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_export_depend>pcl-ros</build_export_depend>
+  <build_export_depend>roscpp</build_export_depend>
+  <build_export_depend>sensor_msgs</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <exec_depend>pcl-ros</exec_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+</package>
