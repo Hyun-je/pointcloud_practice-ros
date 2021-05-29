@@ -33,17 +33,20 @@ include_directories(
 add_executable(voxelization src/voxelization.cpp)
 add_executable(statisticalFilter src/statisticalFilter.cpp)
 add_executable(radiusFilter src/radiusFilter.cpp)
+add_executable(euclideanCluster src/euclideanCluster.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 add_dependencies(voxelization ${catkin_EXPORTED_TARGETS})
 add_dependencies(statisticalFilter ${catkin_EXPORTED_TARGETS})
 add_dependencies(radiusFilter ${catkin_EXPORTED_TARGETS})
+add_dependencies(euclideanCluster ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(voxelization ${catkin_LIBRARIES})
 target_link_libraries(statisticalFilter ${catkin_LIBRARIES})
 target_link_libraries(radiusFilter ${catkin_LIBRARIES})
+target_link_libraries(euclideanCluster ${catkin_LIBRARIES})
 
 
 #############
