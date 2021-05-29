@@ -1,0 +1,6 @@
+<launch>
+
+  <node name="voxelization" pkg="pointcloud_practice" type="voxelization">
+  </node>
+
+</launch>

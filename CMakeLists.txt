@@ -50,13 +50,7 @@ target_link_libraries(radiusFilter ${catkin_LIBRARIES})
 ## Install ##
 #############
 
-install(FILES
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-)
-
 install(DIRECTORY
-    urdf
-    rviz
     launch
     DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )

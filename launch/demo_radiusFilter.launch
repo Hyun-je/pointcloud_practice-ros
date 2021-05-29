@@ -1,0 +1,6 @@
+<launch>
+
+  <node name="radiusFilter" pkg="pointcloud_practice" type="radiusFilter">
+  </node>
+
+</launch>
