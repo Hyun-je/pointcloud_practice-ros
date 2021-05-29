@@ -5,7 +5,7 @@
 #include "pcl/point_types.h"
 #include "pcl_conversions/pcl_conversions.h"
 
-#include "pcl/filters/voxel_grid.h"
+#include "pcl/filters/statistical_outlier_removal.h"
 
 
 ros::Publisher pub;
@@ -20,11 +20,12 @@ void pointCloudCallback(const sensor_msgs::PointCloud2ConstPtr& pointCloud2) {
 	// Convert ROS PointCloud2 to PCL PointCloud
 	pcl::fromROSMsg(*pointCloud2, *pcl_cloud);
 
-	// Voxelize PCL PointCloud
-	pcl::VoxelGrid<pcl::PointXYZI> sor;
-	sor.setInputCloud (pcl_cloud);
-	sor.setLeafSize (0.5f, 0.5f, 0.5f);
-	sor.filter (*pcl_cloud_filtered);
+	// Filter PCL PointCloud
+  	pcl::StatisticalOutlierRemoval<pcl::PointXYZI> sor;
+  	sor.setInputCloud (pcl_cloud);
+  	sor.setMeanK (50);
+  	sor.setStddevMulThresh (1.0);
+  	sor.filter (*pcl_cloud_filtered);
 
 	// Make Filtered PointCloud2 Message
 	sensor_msgs::PointCloud2 pointCloud2_out;
@@ -43,7 +44,7 @@ int main(int argc, char** argv) {
 	ros::NodeHandle nh;
 
 	ros::Subscriber sub = nh.subscribe<sensor_msgs::PointCloud2> ("/velodyne_points", 1000, pointCloudCallback);
-	pub = nh.advertise<sensor_msgs::PointCloud2> ("/velodyne_points_voxelized", 1000);
+	pub = nh.advertise<sensor_msgs::PointCloud2> ("/velodyne_points_filtered", 1000);
 
 	ros::spin();
 
