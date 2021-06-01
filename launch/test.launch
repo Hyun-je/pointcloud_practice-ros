@@ -4,7 +4,7 @@
     <arg name="pcap" value="/root/rosbag/Velodyne-VLP_10Hz_Monterey_Highway.pcap" />  
   </include>
 
-  <node name="euclideanCluster" pkg="pointcloud_practice" type="euclideanCluster">
+  <node name="passThrough" pkg="pointcloud_practice" type="passThrough">
   </node>
 
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find pointcloud_practice)/rviz/test.rviz"/>
