@@ -1,6 +1,7 @@
 <launch>
 
   <node name="voxelization" pkg="pointcloud_practice" type="voxelization">
+    <remap from="cloud_input" to="velodyne_points" />
   </node>
 
 </launch>

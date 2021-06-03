@@ -1,6 +1,7 @@
 <launch>
 
   <node name="radiusFilter" pkg="pointcloud_practice" type="radiusFilter">
+    <remap from="cloud_input" to="velodyne_points" />
   </node>
 
 </launch>

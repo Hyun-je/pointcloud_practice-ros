@@ -43,8 +43,8 @@ int main (int argc, char** argv) {
 	ros::init (argc, argv, "voxelization");
 	ros::NodeHandle nh;
 
-	ros::Subscriber sub = nh.subscribe<sensor_msgs::PointCloud2> ("/velodyne_points", 1000, pointCloudCallback);
-	pub = nh.advertise<sensor_msgs::PointCloud2> ("/velodyne_points_filtered", 1000);
+	ros::Subscriber sub = nh.subscribe<sensor_msgs::PointCloud2> ("/cloud_input", 1000, pointCloudCallback);
+	pub = nh.advertise<sensor_msgs::PointCloud2> ("/cloud_output", 1000);
 
 	ros::spin ();
 
