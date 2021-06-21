@@ -82,7 +82,7 @@ void pointCloudCallback (const sensor_msgs::PointCloud2ConstPtr& pointCloud2) {
 
 int main (int argc, char** argv) {
 
-	ros::init (argc, argv, "voxelization");
+	ros::init (argc, argv, "euclideanCluster");
 
 	ros::NodeHandle nh;
 

@@ -23,8 +23,8 @@ void pointCloudCallback (const sensor_msgs::PointCloud2ConstPtr& pointCloud2) {
 	// Filter PCL PointCloud
 	pcl::PassThrough<pcl::PointXYZI> pass;
 	pass.setInputCloud	(pcl_cloud);
-	pass.setFilterFieldName	("x");
-	pass.setFilterLimits	(-12, 12);
+	pass.setFilterFieldName	("z");
+	pass.setFilterLimits	(-1, 10);
 	//pass.setFilterLimitsNegative (true);
 	pass.filter		(*pcl_cloud_filtered);
 

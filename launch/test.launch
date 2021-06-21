@@ -1,11 +1,21 @@
 <launch>
 
   <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch">
-    <arg name="pcap" value="/root/rosbag/Velodyne-VLP_10Hz_Monterey_Highway.pcap" />  
+    <arg name="pcap" value="/root/rosbag/2014-11-10-11-32-17_Velodyne-VLP_10Hz_Monterey Highway.pcap" />  
   </include>
 
-  <node name="euclideanCluster" pkg="pointcloud_practice" type="euclideanCluster">
+  <node name="voxelization" pkg="pointcloud_practice" type="voxelization">
     <remap from="cloud_input" to="velodyne_points" />
+    <remap from="cloud_output" to="velodyne_points_voxelized" />
+  </node>
+
+  <node name="passThrough" pkg="pointcloud_practice" type="passThrough">
+    <remap from="cloud_input" to="velodyne_points_voxelized" />
+    <remap from="cloud_output" to="velodyne_points_filtered" />
+  </node>
+
+  <node name="euclideanCluster" pkg="pointcloud_practice" type="euclideanCluster">
+    <remap from="cloud_input" to="velodyne_points_filtered" />
     <remap from="cloud_output" to="velodyne_points_clustered" />
   </node>
 
