@@ -3,14 +3,17 @@
 ## How to Build
 Ubuntu Native (Bionic + ROS Melodic)
 
+
+#### Step 1. Install dependencies
 ```
-# 1. Install dependencies
 sudo apt-get install ros-melodic-velodyne ros-melodic-pcl-ros ros-melodic-pcl-conversions
-
-# 2. Clone source code
+```
+#### Step 2. Clone source code
+```
 git clone --recursive https://github.com/Hyun-je/pointcloud_practice-ros ~/catkin_ws/src
-
-# 3. Run catkin_make
+```
+#### Step 3. Run catkin_make
+```
 cd ~/catkin_ws && catkin_make
 ```
 
